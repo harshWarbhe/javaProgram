@@ -1,44 +1,39 @@
-package com.java.scerario_based;
+package com.java.interfaceProblem.assign_01_06.q1;
 
-public class Student
-{
+import java.util.function.Consumer;
+
+public class Student implements ObjectCreator {
+	private int id;
 	private String name;
-	private int marks;
-	
-	
-	public Student(String name, int marks) {
-		super();
-		this.name = name;
-		this.marks = marks;
-	}
 
+	public Student(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-	public int getMarks() {
-		return marks;
-	}
-
-
-	public void setMarks(int marks) {
-		this.marks = marks;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", marks=" + marks + "]";
+		return "Student [id=" + id + ", name=" + name + "]";
 	}
-	
-	
-	
-	
+
+	public void updateName(Consumer<String> nameUpdater) 
+	{
+		nameUpdater.accept("ravi");
+		System.out.println(toString());
+		
+	}
+
+	@Override
+	public Object create(int id, String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
